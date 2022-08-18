@@ -1,0 +1,82 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+
+local Window = OrionLib:MakeWindow({Name = "Remake Of Ilumn 2 ( ͡° ͜ʖ ͡°)", HidePremium = false, SaveConfig = true, IntroText = "Enjoy ( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)"})
+
+OrionLib:MakeNotification({
+	Name = "Logged In!",
+	Content = "Exploits Enabled ;-)",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+
+
+local Tab = Window:MakeTab({
+	Name = "Player",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddButton({
+    Name = "Infinite Jumps",
+	Callback = function()
+        loadstring(game:HttpGet("https://cdn.wearedevs.net/scripts/Infinite%20Jump.txt"))()
+    end    
+})
+
+Tab:AddToggle({
+    Name = "Agility And Jump Power",
+	Default = false,
+	Callback = function(Value)
+		if Value then
+            game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 32 -- Change "100" to any number you want (Speed)
+            game.Players.LocalPlayer.Character.Humanoid.JumpPower = 60;
+            
+        else
+            game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 28;
+            game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50;
+            
+        end
+	end    
+})
+
+Tab:AddSlider({
+	Name = "Agility",
+	Min = 16,
+	Max = 200,
+	Default = 5,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "Agility",
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+	end    
+})
+Tab:AddSlider({
+	Name = "Jump Power",
+	Min = 50,
+	Max = 500,
+	Default = 5,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "Jump Power",
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+	end    
+})
+
+local Tab = Window:MakeTab({
+	Name = "Admin Power",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddButton({
+	Name = "Infinite Yeild",
+	Callback = function()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+	end 
+})
+
+Slider:Set(2)
+
+OrionLib:Init()
